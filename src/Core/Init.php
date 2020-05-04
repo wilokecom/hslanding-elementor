@@ -1,6 +1,8 @@
 <?php
 namespace HsLandingElementor\Core;
 
+use HsLandingElementor\Elements\CallToAction;
+
 /**
  * Class Plugin
  *
@@ -55,8 +57,7 @@ class Init
         foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_PATH.'*.php') as $file) {
             $file  = $this->parseFile($file);
             $class = 'HsLandingElementor\Elements\\'.str_replace('.php', '', $file);
-            
-            new $class;
+            \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new $class);
         }
     }
     
