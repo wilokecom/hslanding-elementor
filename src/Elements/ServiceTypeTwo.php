@@ -7,10 +7,10 @@ use Elementor\Widget_Base;
 use Elementor\Repeater;
 
 /**
- * Class Service
+ * Class ServiceTypeTwo
  * @package HsLandingElementor\Elements
  */
-class Service extends Widget_Base
+class ServiceTypeTwo extends Widget_Base
 {
     /**
      * Retrieve the widget name.
@@ -23,7 +23,7 @@ class Service extends Widget_Base
      */
     public function get_name()
     {
-        return 'hslanding-service';
+        return 'hslanding-service-type-two';
     }
 
     /**
@@ -37,7 +37,7 @@ class Service extends Widget_Base
      */
     public function get_title()
     {
-        return __('Service', 'hslanding-elementor');
+        return __('ServiceTypeTwo', 'hslanding-elementor');
     }
 
     /**
@@ -115,6 +115,13 @@ class Service extends Widget_Base
                 'label_block' => true,
             ]
         );
+        $this->add_control(
+            'animation-round-img',
+            [
+                'label' => __('Animation-round Img', 'hslanding-elementor'),
+                'type' => \Elementor\Controls_Manager::MEDIA,
+            ]
+        );
 
         $oRepeater = new Repeater();
         $oRepeater->add_control(
@@ -140,24 +147,7 @@ class Service extends Widget_Base
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'label_block' => true,
             ]
-        );
-
-        $oRepeater->add_control(
-            'icon',
-            [
-                'label' => __('Icon', 'hslanding-elementor'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'label_block' => true,
-            ]
-        );
-        $oRepeater->add_control(
-            'icon-color',
-            [
-                'label' => __('Icon Color', 'hslanding-elementor'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'label_block' => true,
-            ]
-        );
+        ); 
         $this->add_control(
             'services',
             [
@@ -182,43 +172,37 @@ class Service extends Widget_Base
     {
         $aSettings = $this->get_settings_for_display();
         $aServices = $aSettings['services'];
-        ?>
-            <!--==================================================================== 
-							Start service-section-one
-            =====================================================================-->
-                <section class="service-section-one another-page pt-65 pb-45">
-                    <div class="container">
-                        <?php if (!empty($aSettings['title'])) : ?>
-                            <div class="row justify-content-center">
-                                <div class="col-lg-6 text-center">
-                                <div class="section-title">
-                                    <h2><?php echo esc_html($aSettings['title']);?></h2>
-                                    <p><?php echo esc_html($aSettings['sub-title-line1']);?> <br><?php echo esc_html($aSettings['sub-title-line2']);?></p>
-                                </div>
+        ?> 
+            <section class="service-section-two pt-75 pb-45 rpt-0">
+                <div class="container">
+                    <div class="animation-round-border">
+                        <img src="<?php echo esc_html($aSettings['animation-round-img']['url']);?>" alt="">
+                    </div>
+                    <?php if (!empty($aSettings['title'])) : ?>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 text-center">
+                            <div class="section-title">
+                                <h2><?php echo esc_html($aSettings['title']);?></h2>
+                                <p><?php echo esc_html($aSettings['sub-title-line1']);?> <br><?php echo esc_html($aSettings['sub-title-line2']);?></p>
+                            </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="row">
+
+                        <!-- single-service -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="single-service service-style-two wow animated customFadeInUp delay-0-1s">
+                                <div class="service-content">
+                                    <h5><a href="<?php echo esc_html($aService['url']);?>"><?php echo esc_html($aService['title']);?></a></h5>
+                                    <p><?php echo esc_html($aService['description']);?></p>
                                 </div>
                             </div>
-                        <?php endif; ?>
-                        <div class="row">
-                            <?php foreach ($aServices as $aService) : ?>
-                                <!-- single service item -->
-                                <div class="col-lg-3 col-md-6">
-                                    <div class="single-service service-style-one text-center wow animated customFadeInUp delay-0-1s">
-                                        <div class="service-icon <?php echo esc_html($aService['icon-color']);?>">
-                                            <i class="<?php echo esc_html($aService['icon']);?>"></i>
-                                        </div>
-                                        <div class="service-content">
-                                            <h5><a href="<?php echo esc_html($aService['url']);?>"><?php echo esc_html($aService['title']);?></a></h5>
-                                            <p><?php echo esc_html($aService['description']);?></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endforeach; ?>
                         </div>
+
                     </div>
-                </section>
-            <!--==================================================================== 
-                                    end service-section-one
-            =====================================================================-->
+                </div>
+            </section> 
         <?php
     }
 }
