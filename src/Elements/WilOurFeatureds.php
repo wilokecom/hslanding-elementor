@@ -117,6 +117,20 @@ class WilOurFeatureds extends Widget_Base
                 'default' => ''
             ]
         );
+        $this->add_control(
+            'featured-round-1',
+            [
+                'label'   => __('Featured-round 1', 'elementor-hello-world'),
+                'type'    => Controls_Manager::MEDIA, 
+            ]
+        );
+        $this->add_control(
+            'featured-round-2',
+            [
+                'label'   => __('Featured-round 2', 'elementor-hello-world'),
+                'type'    => Controls_Manager::MEDIA, 
+            ]
+        );
         // end_controls_section -----
         $this->end_controls_section();
         
@@ -194,8 +208,8 @@ class WilOurFeatureds extends Widget_Base
                         Start Our featureds section
             =====================================================================-->
                 <section class="featured-area pt-75 pb-45">
-                    <div class="d-none d-xl-block featured-round"><img src="assets/img/feature/feature.png" alt=""></div>
-                    <div class="d-none d-xl-block featured-round-small"><img src="assets/img/feature/small-feature.png" alt=""></div>
+                    <div class="d-none d-xl-block featured-round"><img src="<?php echo esc_html($aSettings['featured-round-1']['url']); ?>" alt=""></div>
+                    <div class="d-none d-xl-block featured-round-small"><img src="<?php echo esc_html($aSettings['featured-round-2']['url']); ?>" alt=""></div>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">

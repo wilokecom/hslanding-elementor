@@ -103,7 +103,7 @@ class ServiceTypeTwo extends Widget_Base
             'sub-title-line1',
             [
                 'label' => __('Sub Title Line1', 'hslanding-elementor'),
-                'type' => \Elementor\Controls_Manager::TEXT,
+                'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'label_block' => true, 
             ]
         );
@@ -122,7 +122,15 @@ class ServiceTypeTwo extends Widget_Base
                 'type' => \Elementor\Controls_Manager::MEDIA,
             ]
         );
+        $this->end_controls_section();
 
+        $this->start_controls_section(
+            'service-type-twos-setting',
+            [
+                'label' => __('Service Settings', 'hslanding-elementor'),
+            ]
+        );
+ 
         $oRepeater = new Repeater();
         $oRepeater->add_control(
             'title',
@@ -149,7 +157,7 @@ class ServiceTypeTwo extends Widget_Base
             ]
         ); 
         $this->add_control(
-            'services',
+            'service-type-twos',
             [
                 'label'  => __('Services', 'hslanding-elementor'),
                 'type'   => \Elementor\Controls_Manager::REPEATER,
@@ -171,7 +179,7 @@ class ServiceTypeTwo extends Widget_Base
     protected function render()
     {
         $aSettings = $this->get_settings_for_display();
-        $aServices = $aSettings['services'];
+        $aServices = $aSettings['service-type-twos'];
         ?> 
             <section class="service-section-two pt-75 pb-45 rpt-0">
                 <div class="container">
@@ -189,17 +197,17 @@ class ServiceTypeTwo extends Widget_Base
                         </div>
                     <?php endif; ?>
                     <div class="row">
-
-                        <!-- single-service -->
-                        <div class="col-lg-4 col-md-6">
-                            <div class="single-service service-style-two wow animated customFadeInUp delay-0-1s">
-                                <div class="service-content">
-                                    <h5><a href="<?php echo esc_html($aService['url']);?>"><?php echo esc_html($aService['title']);?></a></h5>
-                                    <p><?php echo esc_html($aService['description']);?></p>
+                        <?php foreach ($aServices as $aService) : ?>
+                            <!-- single-service -->
+                            <div class="col-lg-4 col-md-6">
+                                <div class="single-service service-style-two wow animated customFadeInUp delay-0-1s">
+                                    <div class="service-content">
+                                        <h5><a href="<?php echo esc_html($aService['url']);?>"><?php echo esc_html($aService['title']);?></a></h5>
+                                        <p><?php echo esc_html($aService['description']);?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </section> 

@@ -93,10 +93,17 @@ class TestimonialOne extends Widget_Base
         );
         
         $this->add_control(
-            'first_customer',
+            'title',
             [
-                'label' => __('First Customer Avatar', 'elementor-hello-world'),
-                'type'  => Controls_Manager::MEDIA
+                'label' => __('Title', 'elementor-hello-world'),
+                'type'  => Controls_Manager::TEXT
+            ]
+        );
+        $this->add_control(
+            'sub-title',
+            [
+                'label' => __('Sub Title', 'elementor-hello-world'),
+                'type'  => Controls_Manager::TEXT
             ]
         );
         
@@ -170,42 +177,54 @@ class TestimonialOne extends Widget_Base
         }
         
         ?>
-        <div class="testimonial-column">
-            <div class="testi-round">
-                <img src="<?php echo esc_url(HSLANDING_ELEMENTOR_ELEMENTS_IMG_URL.'testimonial/testi-round.png'); ?>"
-                     alt="Testimonial">
-            </div>
-            <?php if (!empty($aSettings['first_customer']['url'])) : ?>
-                <div class="testi-small-img">
-                    <img src="<?php echo esc_url($aSettings['first_customer']['url']); ?>" alt="Testimonial">
-                </div>
-            <?php endif; ?>
-            <div class="testimonial-carousel owl-carousel">
-                <?php foreach ($aSettings['testimonials'] as $aTestimonial) : ?>
-                    <div class="testimonial-block">
-                        <div class="testi-author">
-                            <img src="<?php echo esc_url($aTestimonial['avatar']['url']) ?>" alt="<?php echo esc_attr
-                            ($aTestimonial['name']); ?>">
-                        </div>
-                        <div class="testi-content-wrap">
-                            <div class="testi-content">
-                                <?php echo $aTestimonial['review']; ?>
-                            </div>
-                            <div class="testi-author-info">
-                                <h5 class="name"><?php echo esc_html($aTestimonial['name']); ?></h5>
-                                <?php if (!empty($aTestimonial['position'])) : ?>
-                                    <span class="designation"><?php echo esc_html($aTestimonial['position']); ?></span>
-                                <?php endif; ?>
-                            </div>
+        <section class="testimonial-section pt-75 pb-75">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="section-title">
+                            <h2><?php echo esc_html($aSettings['title']); ?></h2>
+                            <p><?php echo esc_html($aSettings['sub-title']); ?></p>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="testimonial-column">
+                            <div class="testi-round">
+                                <img src="<?php echo esc_url(HSLANDING_ELEMENTOR_ELEMENTS_IMG_URL.'testimonial/testi-round.png'); ?>"
+                                    alt="Testimonial">
+                            </div>
+                    
+                            <div class="testimonial-carousel owl-carousel">
+                                <?php foreach ($aSettings['testimonials'] as $aTestimonial) : ?>
+                                    <div class="testimonial-block">
+                                        <div class="testi-author">
+                                            <img src="<?php echo esc_url($aTestimonial['avatar']['url']) ?>" alt="<?php echo esc_attr
+                                            ($aTestimonial['name']); ?>">
+                                        </div>
+                                        <div class="testi-content-wrap">
+                                            <div class="testi-content">
+                                                <?php echo $aTestimonial['review']; ?>
+                                            </div>
+                                            <div class="testi-author-info">
+                                                <h5 class="name"><?php echo esc_html($aTestimonial['name']); ?></h5>
+                                                <?php if (!empty($aTestimonial['position'])) : ?>
+                                                    <span class="designation"><?php echo esc_html($aTestimonial['position']); ?></span>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                            <div class="d-none d-xl-block testi-small-shape">
+                                <img src="<?php echo esc_url(HSLANDING_ELEMENTOR_ELEMENTS_IMG_URL.'testimonial/testi-small-round.png'); ?>" 
+                                    alt="Highspeed blog" />
+                            </div>
+                        </div>
+                        </div>
+                </div>
             </div>
-            <div class="d-none d-xl-block testi-small-shape">
-                <img src="<?php echo esc_url(HSLANDING_ELEMENTOR_ELEMENTS_IMG_URL.'testimonial/testi-small-round.png'); ?>" 
-                     alt="Highspeed blog" />
-            </div>
-        </div>
+        </section> 
         <?php
     }
 }

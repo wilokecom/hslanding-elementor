@@ -63,24 +63,30 @@ class Init
     
     protected function enqueueCSS()
     {
-        // foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_CSS_PATH.'*.css') as $file) {
-        //     $file = $this->parseFile($file);
+        foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_CSS_PATH.'*.css') as $file) {
+            $file = $this->parseFile($file);
             
-        //     $fileName = str_replace('.css', '', $file);
+            $fileName = str_replace('.css', '', $file);
             
             wp_enqueue_style(
-                'hslanding-style',
-                HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'style.css',
+                $fileName,
+                HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.$file,
                 [],
                 HSLANDING_ELEMENTOR_VERSION
             );
-            wp_enqueue_style(
-                'hslanding-responsive',
-                HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'responsive.css',
-                [],
-                HSLANDING_ELEMENTOR_VERSION
-            );
-        // }
+            // wp_enqueue_style(
+            //     'hslanding-style',
+            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'style.css',
+            //     [],
+            //     HSLANDING_ELEMENTOR_VERSION
+            // );
+            // wp_enqueue_style(
+            //     'hslanding-responsive',
+            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'responsive.css',
+            //     [],
+            //     HSLANDING_ELEMENTOR_VERSION
+            // );
+        }
     }
     
     protected function enqueueJS()
