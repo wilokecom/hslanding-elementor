@@ -161,52 +161,58 @@ class Blog extends Widget_Base
         $aSettings = $this->get_settings_for_display();
         $aBlogs=$aSettings['blogs'];
         ?>
-        <div class="row justify-content-center">
-            <div class="col-lg-8 text-center">
-                <div class="section-title">
-                    <h2><?php echo esc_html($aSettings['title']);?></h2>
-                    <p><?php echo esc_html($aSettings['description']);?></p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <?php
-            foreach ($aBlogs as $aBlog) {
-                $iAuthorId = get_post_field( 'post_author', $aBlog['postID']);
-                ?>
-                <div class="col-lg-4 col-sm-6 wow animated customFadeInLeft">
-                    <div class="news-block mb-30">
-                        <div class="blog-thumb">
-                            <img src="<?php echo get_the_post_thumbnail($aBlog['postID']);?>" alt="#">
-                        </div>
-                        <div class="news-inner">
-                            <h5><a href="<?php echo get_permalink($aBlog['postID']);?>"><?php echo
-                                    get_the_title($aBlog['postID']);?></a></h5>
-                            <div class="news-text">
-                                <p><?php echo get_the_excerpt($aBlog['postID']);?></p>
-                            </div>
-                            <div class="admin-by">
-                                <a href="<?php echo get_author_posts_url($iAuthorId);?>"><?php echo get_the_author_meta( 'display_name', $iAuthorId )
-                                    ?></a>
-                            </div>
-                            <div class="post-date">
-                                <a href="#"><?php echo get_the_date(get_option('date_format'),$aBlog['postID']);?></a>
-                            </div>
-                        </div>
-                        <div class="hover">
-                            <div class="hover-inner">
-                                <h4><a href="<?php echo get_permalink($aBlog['postID']);?>"><?php echo
-                                        get_the_title($aBlog['postID']);?></a>
-                                </h4>
-                                <div class="blog-read-time"><?php echo esc_html($aBlog['reading-time']);?> min Read</div>
-                            </div>
+        <section class="blog-section gray-bg pt-75">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <div class="section-title">
+                            <h2><?php echo esc_html($aSettings['title']);?></h2>
+                            <p><?php echo esc_html($aSettings['description']);?></p>
                         </div>
                     </div>
                 </div>
-                <?php
-            }
-            ?>
-        </div>
+                <div class="row">
+                    <?php
+                    foreach ($aBlogs as $aBlog) {
+                        $iAuthorId = get_post_field( 'post_author', $aBlog['postID']);
+                        ?>
+                            <div class="col-lg-4 col-sm-6 wow animated customFadeInLeft">
+                                <div class="news-block mb-30">
+                                    <div class="blog-thumb">
+                                        <?php echo get_the_post_thumbnail($aBlog['postID']); ?>
+                                    </div>
+                                    <div class="news-inner">
+                                        <h5><a href="<?php echo get_permalink($aBlog['postID']);?>"><?php echo
+                                                get_the_title($aBlog['postID']);?></a></h5>
+                                        <div class="news-text">
+                                            <p><?php echo get_the_excerpt($aBlog['postID']);?></p>
+                                        </div>
+                                        <div class="admin-by">
+                                            <a href="<?php echo get_author_posts_url($iAuthorId);?>"><?php echo get_the_author_meta( 'display_name', $iAuthorId )
+                                                ?></a>
+                                        </div>
+                                        <div class="post-date">
+                                            <a href="#"><?php echo get_the_date(get_option('date_format'),$aBlog['postID']);?></a>
+                                        </div>
+                                    </div>
+                                    <div class="hover">
+                                        <div class="hover-inner">
+                                            <h4>
+                                                <a target="_blank" rel="noopener noreferrer" href="<?php echo get_permalink($aBlog['postID']);?>">
+                                                    <?php echo get_the_title($aBlog['postID']); ?>
+                                                </a>
+                                            </h4> 
+                                            <div class="blog-read-time"><?php echo esc_html($aBlog['reading-time']);?> min Read</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php
+                    }
+                    ?>
+                </div>
+            </div>
+        </section>
         <?php
     }
 }

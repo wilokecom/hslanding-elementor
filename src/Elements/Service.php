@@ -90,34 +90,27 @@ class Service extends Widget_Base
                 'label' => __('Service Settings', 'hslanding-elementor'),
             ]
         );
-
-        $this->add_control(
-            'style',
-            [
-                'label'   => __('Style', 'hslanding-elementor'),
-                'type'    => Controls_Manager::SELECT,
-                'options' => [
-                    'service-style-one' => 'Style 1',
-                    'service-style-two' => 'Style 2'
-                ],
-                'default' => 'service-style-one'
-            ]
-        );
+ 
         $this->add_control(
             'title',
             [
                 'label' => __('Title', 'hslanding-elementor'),
                 'type' => \Elementor\Controls_Manager::TEXT,
-                'label_block' => true,
-                'condition' => [
-                    'style' => ['service-style-two']
-                ]
+                'label_block' => true, 
             ]
         );
         $this->add_control(
-            'description',
+            'sub-title-line1',
             [
-                'label' => __('Description', 'hslanding-elementor'),
+                'label' => __('Sub Title Line1', 'hslanding-elementor'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true, 
+            ]
+        );
+        $this->add_control(
+            'sub-title-line2',
+            [
+                'label' => __('Sub Title Line1', 'hslanding-elementor'),
                 'type' => \Elementor\Controls_Manager::TEXTAREA,
                 'label_block' => true,
                 'condition' => [
@@ -161,9 +154,9 @@ class Service extends Widget_Base
             ]
         );
         $oRepeater->add_control(
-            'class',
+            'icon-color',
             [
-                'label' => __('Class', 'hslanding-elementor'),
+                'label' => __('Icon Color', 'hslanding-elementor'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'label_block' => true,
             ]
@@ -192,46 +185,43 @@ class Service extends Widget_Base
     {
         $aSettings = $this->get_settings_for_display();
         $aServices = $aSettings['services'];
-        foreach ($aServices as $aService) {
-            if ($aSettings['style'] == 'service-style-one') {
-                ?>
-                <div class="<?php echo esc_attr('single-service service-style-one text-center wow animated customFadeInUp '.$aService['class'])?>">
-                    <div class="service-icon zero">
-                        <i class="<?php echo esc_attr($aService['icon']); ?>"></i>
-                    </div>
-                    <div class="service-content">
-                        <h5><a href="<?php echo esc_url($aService['url']['url']); ?>"><?php echo esc_html(
-                                    $aService['title']
-                                );
-                                ?></a></h5>
-                        <p><?php echo esc_html($aService['description']); ?></p>
-                    </div>
-                </div>
-            <?php } else { ?>
-                <div class="row justify-content-center">
-                    <div class="col-lg-6 text-center">
-                        <div class="section-title">
-                            <h2><?php echo esc_html($aSettings['title']); ?></h2>
-                            <p><?php echo esc_html($aSettings['description']); ?></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="<?php echo esc_attr('single-service service-style-two wow animated customFadeInUp '.$aService['class']);
-                        ?>">
-                            <div class="service-content">
-                                <h5><a href="<?php echo esc_attr($aService['url']['url']); ?>"><?php echo esc_html(
-                                            $aService['title']
-                                        );
-                                        ?></a></h5>
-                                <p><?php echo esc_html($aService['description']); ?></p>
+        ?>
+            <!--==================================================================== 
+							Start service-section-one
+            =====================================================================-->
+                <section class="service-section-one another-page pt-65 pb-45">
+                    <div class="container">
+                        <?php if (!empty($aSettings['title'])) : ?>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6 text-center">
+                                <div class="section-title">
+                                    <h2><?php echo esc_html($aSettings['title']);?></h2>
+                                    <p><?php echo esc_html($aSettings['sub-title-line1']);?> <br><?php echo esc_html($aSettings['sub-title-line2']);?></p>
+                                </div>
+                                </div>
                             </div>
+                        <?php endif; ?>
+                        <div class="row">
+                            <?php foreach ($aServices as $aService) : ?>
+                                <!-- single service item -->
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="single-service service-style-one text-center wow animated customFadeInUp delay-0-1s">
+                                        <div class="service-icon <?php echo esc_html($aService['icon-color']);?>">
+                                            <i class="<?php echo esc_html($aService['icon']);?>"></i>
+                                        </div>
+                                        <div class="service-content">
+                                            <h5><a href="<?php echo esc_html($aService['url']);?>"><?php echo esc_html($aService['title']);?></a></h5>
+                                            <p><?php echo esc_html($aService['description']);?></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                </div>
-                <?php
-            }
-        }
+                </section>
+            <!--==================================================================== 
+                                    end service-section-one
+            =====================================================================-->
+        <?php
     }
 }
