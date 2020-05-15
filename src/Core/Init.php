@@ -74,6 +74,18 @@ class Init
                 [],
                 HSLANDING_ELEMENTOR_VERSION
             );
+            // wp_enqueue_style(
+            //     'hslanding-style',
+            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'style.css',
+            //     [],
+            //     HSLANDING_ELEMENTOR_VERSION
+            // );
+            // wp_enqueue_style(
+            //     'hslanding-responsive',
+            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'responsive.css',
+            //     [],
+            //     HSLANDING_ELEMENTOR_VERSION
+            // );
         }
     }
     
@@ -158,6 +170,20 @@ class Init
         
         return true;
     }
+
+    /**
+     * @param $oElementsManager
+     */
+    function initCategories($oElementsManager)
+    {
+        $oElementsManager->add_category(
+            "hsblog",
+            array(
+                "title" => __("HsBlog Landing",'hslanding-elementor'),
+                "icon" => "fa fa-plug",
+            )
+        );
+    }
     
     /**
      *  Plugin class constructor
@@ -171,6 +197,7 @@ class Init
     {
         // Register widgets
         add_action('elementor/widgets/widgets_registered', [$this, 'registerWidgets']);
+        add_action("elementor/elements/categories_registered", array($this, "initCategories"));
         add_action('wp_enqueue_scripts', [$this, 'enqueueScripts']);
         add_action('hsblog/filter/app/enqueue-scripts/exclude-scripts', [$this, 'removeHSScripts'], 99);
         add_action('hsblog-childtheme/filter/enqueue-jquery', [$this, 'allowEnqueuejQuery'], 99);
