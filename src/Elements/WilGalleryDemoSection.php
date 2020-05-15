@@ -234,10 +234,10 @@ class WilGalleryDemoSection extends Widget_Base
                                     </div>
                                 </div>
                             </div>
-                            <div class="row custom-row portfolio-active">
+                            <div class="portfolio-active">
                                 <?php foreach ($aSettings['portfolios'] as $aPortfolios) : ?>
                                     <!-- single-portfolio item-->
-                                    <div class="col-lg-3 col-md-4 col-xs-6 grid-item  <?php echo esc_html($aPortfolios['filter-class']); ?>" style="text-align: center">
+                                    <div class="col-lg-3 col-md-4 col-sm-6 grid-item  <?php echo esc_html($aPortfolios['filter-class']); ?>" style="text-align: center">
                                         <div class="demo-wrap mb-30 wow customFadeInUp delay-0-3s animated">
                                             <a href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer" style="display: block; padding: 15px">
                                                 <h2 class="demo-name">
