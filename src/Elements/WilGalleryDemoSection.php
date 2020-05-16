@@ -211,49 +211,60 @@ class WilGalleryDemoSection extends Widget_Base
                 <!--==================================================================== 
                                     Start portfolio section
             =====================================================================-->
-            <section class="portfolio-area pt-240 pb-75 rpt-195">
+            <section class="portfolio-area pt-240 pb-75 rpt-195 WilGalleryDemoSection">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="portfolio-wrapper">
 
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8 text-center pt-75">
-                                    <div class="section-title">
-                                        <h2><?php echo esc_html($aSettings['title']); ?></h2>
-                                        <p><?php echo esc_html($aSettings['sub-title-line1']); ?> <br><?php echo esc_html($aSettings['sub-title-line2']); ?></p>
-                                    </div>
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8 text-center pt-75">
+                                <div class="section-title">
+                                    <h2><?php echo esc_html($aSettings['title']); ?></h2>
+                                    <p><?php echo esc_html($aSettings['sub-title-line1']); ?> <br><?php echo esc_html($aSettings['sub-title-line2']); ?></p>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-12 text-center">
-                                    <div class="portfolio-menu third-portfolio-menu mb-55">
-                                        <button class="active" data-filter="*">All</button>
-                                        <?php foreach ($aSettings['menus'] as $menus) : ?>
-                                            <button data-filter=".<?php echo esc_html($menus['menu-filter']); ?>"><?php echo esc_html($menus['menu-name']); ?></button> 
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="custom-row portfolio-active">
-                                <?php foreach ($aSettings['portfolios'] as $aPortfolios) : ?>
-                                    <!-- single-portfolio item-->
-                                    <div class="demo-grid-item grid-item  <?php echo esc_html($aPortfolios['filter-class']); ?>" style="text-align: center">
-                                        <div class="demo-wrap single-portfolio-item mb-30 wow customFadeInUp delay-0-3s animated">
-                                            <a href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer" style="display: block; padding: 15px">
-                                                <h2 class="demo-name">
-                                                    <?php echo esc_html($aPortfolios['name']); ?>
-                                                </h2>
-                                                <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
-                                            </a>
-                                        </div>
-                                        
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-
                         </div>
                     </div>
                 </div>
+                               <!-- tab button -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="tab-two-btn-wrap nav nav-tabs mb-40 flex items-center justify-center" >
+                            <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
+                                <li style="">
+                                    <a data-toggle="tab" href="#<?php echo esc_html($menus['menu-filter']); ?>" class="tab-two-btn <?php echo $index === 0 ? 'active': '' ; ?>" >
+                                        <h2 style="font-size: 24px"><?php echo esc_html($menus['menu-name']); ?></h2>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+
+                    <!-- tab-content -->
+                    <div class="col-sm-12">
+                        <div class="tab-content">
+                            <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
+                                <div id="<?php echo esc_html($menus['menu-filter']); ?>" class="tab-pane <?php echo $index === 0 ? 'active': 'fade' ; ?>">
+                                    <div class="row">
+                                        <?php foreach ($aSettings['portfolios'] as $aPortfolios) : ?>
+                                            <?php if ($aPortfolios['filter-class'] === $menus['menu-filter'] ): ?>
+                                                <!-- tab one content -->
+                                                <div class="col-sm-3">
+                                                    <a class="demo-wrap mb-50 mt-20 tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
+                                                        <h5 class="demo-name"> <?php echo esc_html($aPortfolios['name']); ?></h5>
+                                                        <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
+                                                        <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
+                                                    </a>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    </div>
+                                </div>
+                                        <!-- single-portfolio item--> 
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </div>   
+                             
 
             </section>
 
