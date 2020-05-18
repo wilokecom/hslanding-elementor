@@ -211,7 +211,7 @@ class WilGalleryDemoSection extends Widget_Base
                 <!--==================================================================== 
                                     Start portfolio section
             =====================================================================-->
-            <section class="portfolio-area pt-240 pb-75 rpt-195 WilGalleryDemoSection">
+            <section class="WilGalleryDemoSection portfolio-area pt-75 pb-75">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -245,14 +245,13 @@ class WilGalleryDemoSection extends Widget_Base
                             <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
                                 <div id="<?php echo esc_html($menus['menu-filter']); ?>" class="tab-pane <?php echo $index === 0 ? 'active': 'fade' ; ?>">
                                     <div class="row">
-                                        <?php foreach ($aSettings['portfolios'] as $aPortfolios) : ?>
+                                        <?php foreach ($aSettings['portfolios'] as $portfolioIndex => $aPortfolios) : ?>
                                             <?php if ($aPortfolios['filter-class'] === $menus['menu-filter'] ): ?>
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
-                                                    <a class="demo-wrap mb-50 mt-20 tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
+                                                    <a class="demo-wrap mb-50 mt-20 tc db wow customFadeInUp delay-0-<?php echo $portfolioIndex + 1; ?>s load-more__item animated" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
                                                         <h5 class="demo-name"> <?php echo esc_html($aPortfolios['name']); ?></h5>
                                                         <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
-                                                        <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
                                                     </a>
                                                 </div>
                                             <?php endif; ?>

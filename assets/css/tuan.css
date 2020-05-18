@@ -79,7 +79,7 @@ a {
 }
 
 .demo-wrap {
-    margin: 0 30px;
+    margin: 30px 30px 50px 30px;
 }
 
 .demo-wrap:hover .demo-name {
