@@ -249,7 +249,7 @@ class WilGalleryDemoSection extends Widget_Base
                                             <?php if ($aPortfolios['filter-class'] === $menus['menu-filter'] ): ?>
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
-                                                    <a class="demo-wrap mb-50 mt-20 tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
+                                                    <a class="demo-wrap tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
                                                         <h5 class="demo-name"> <?php echo esc_html($aPortfolios['name']); ?></h5>
                                                         <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
                                                         <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
