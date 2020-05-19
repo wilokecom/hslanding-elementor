@@ -211,7 +211,7 @@ class WilGalleryDemoSection extends Widget_Base
                 <!--==================================================================== 
                                     Start portfolio section
             =====================================================================-->
-            <section class="portfolio-area pt-240 pb-75 rpt-195 WilGalleryDemoSection">
+            <section class="portfolio-area pt-150 pb-75 rpt-195 WilGalleryDemoSection">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -252,7 +252,6 @@ class WilGalleryDemoSection extends Widget_Base
                                                     <a class="demo-wrap tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
                                                         <h5 class="demo-name"> <?php echo esc_html($aPortfolios['name']); ?></h5>
                                                         <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
-                                                        <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
                                                     </a>
                                                 </div>
                                             <?php endif; ?>
