@@ -190,7 +190,7 @@ class VerticalTabs extends Widget_Base
         <!--==================================================================== 
                     Start hero section
         =====================================================================-->
-        <section class="<?php echo esc_attr($aSettings['extra_classes']).' developer-design mb-200 rmb-100'; ?>">
+        <section class="<?php echo esc_attr($aSettings['extra_classes']).' developer-design mb-100 rmb-100'; ?>">
             <div class="container">
                 <?php if (!empty($aSettings['title']) || !empty($aSettings['description'])) : ?>
                     <div class="cloud-section-title mb-75 text-center">
@@ -203,32 +203,33 @@ class VerticalTabs extends Widget_Base
                     </div>
                 <?php endif; ?>
                 
-                <div class="developer-design-tab">
-                    <div class="nav nav-pills" role="tablist" aria-orientation="vertical">
+                <div class="developer-design-tab"> 
+                      <div class="nav nav-pills" role="tablist" aria-orientation="vertical">
                         <?php
-                        foreach ($aSettings['tabs'] as $aTab) :
-                            $tabID = uniqid('dd-pills-');
-                            $aTabIDs[] = $tabID;
+                            foreach ($aSettings['tabs'] as $tabIndex => $aTab) :
+                                $tabID = uniqid('dd-pills-');
+                                $aTabIDs[] = $tabID;
                             ?>
-                            <a class="nav-link"
-                               id="<?php echo $tabID.'-tab'; ?>"
-                               data-toggle="pill" href="#<?php echo $tabID; ?>"
-                               role="tab"
-                               aria-controls="<?php echo $tabID; ?>" aria-selected="false">
-                                <?php if (!empty($aTab['tab_name'])) : ?>
-                                    <h5><?php echo esc_html($aTab['tab_name']); ?></h5>
-                                <?php endif; ?>
-                                <?php if (!empty($aTab['tab_description'])) : ?>
-                                    <p><?php echo esc_html($aTab['tab_description']); ?></p>
-                                <?php endif; ?>
-                            </a>
-                        <?php endforeach; ?>
+                                <a class="nav-link <?php echo $tabIndex === 1 ? 'active' : ''; ?>"
+                                id="<?php echo $tabID.'-tab'; ?>"
+                                data-toggle="pill" href="#<?php echo $tabID; ?>"
+                                role="tab"
+                                aria-controls="<?php echo $tabID; ?>" aria-selected="false">
+                                    <?php if (!empty($aTab['tab_name'])) : ?>
+                                        <h5><?php echo esc_html($aTab['tab_name']); ?></h5>
+                                    <?php endif; ?>
+                                    <?php if (!empty($aTab['tab_description'])) : ?>
+                                        <p><?php echo esc_html($aTab['tab_description']); ?></p>
+                                    <?php endif; ?>
+                                </a>
+                            <?php endforeach; ?>
                     </div>
                     <div class="tab-content">
                         <?php
                         foreach ($aSettings['tabs'] as $order => $aTab) :
                             ?>
-                            <div class="tab-pane fade" id="<?php echo $aTabIDs[$order]; ?>" role="tabpanel"
+                            <div class="tab-pane fade <?php echo $order === 1 ? 'show active' : ''; ?>" 
+                                id="<?php echo $aTabIDs[$order]; ?>" role="tabpanel"
                                  aria-labelledby="dd-pills-one-tab">
                                 <?php if (!empty($aTab['right_image']['url'])) : ?>
                                     <img src="<?php echo esc_url($aTab['right_image']['url']); ?>" alt="<?php echo
