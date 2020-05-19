@@ -83,7 +83,7 @@ class WilHeroSection extends Widget_Base
      */
     protected function _register_controls()
     {
-
+        
         // start_controls_section -----
         $this->start_controls_section(
             'general_settings_section',
@@ -96,31 +96,39 @@ class WilHeroSection extends Widget_Base
             'title',
             [
                 'label'   => __('Title', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
-                'default' => ''
-            ]
-        );  
-        $this->add_control(
-            'sub-title-line1',
-            [
-                'label'   => __('Sub Title Line1', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
+                'type'    => Controls_Manager::TEXTAREA,
                 'default' => ''
             ]
         );
         $this->add_control(
-            'sub-title-line2',
+            'description',
             [
-                'label'   => __('Sub Title Line2', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
+                'label'   => 'Description',
+                'type'    => Controls_Manager::WYSIWYG,
                 'default' => ''
             ]
         );
+//        $this->add_control(
+//            'sub-title-line1',
+//            [
+//                'label'   => __('Sub Title Line1', 'elementor-hello-world'),
+//                'type'    => Controls_Manager::TEXTAREA,
+//                'default' => ''
+//            ]
+//        );
+//        $this->add_control(
+//            'sub-title-line2',
+//            [
+//                'label'   => __('Sub Title Line2', 'elementor-hello-world'),
+//                'type'    => Controls_Manager::TEXTAREA,
+//                'default' => ''
+//            ]
+//        );
         $this->add_control(
             'btn',
             [
                 'label'   => __('Button', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
+                'type'    => Controls_Manager::TEXTAREA,
                 'default' => ''
             ]
         );
@@ -128,29 +136,29 @@ class WilHeroSection extends Widget_Base
             'btn-href',
             [
                 'label'   => __('Button Href', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
+                'type'    => Controls_Manager::TEXTAREA,
                 'default' => ''
             ]
         );
         $this->add_control(
             'bg-img',
             [
-                'label'   => __('Bg Image', 'elementor-hello-world'),
-                'type'    => Controls_Manager::MEDIA, 
+                'label' => __('Bg Image', 'elementor-hello-world'),
+                'type'  => Controls_Manager::MEDIA,
             ]
         );
         $this->add_control(
             'right-img',
             [
-                'label'   => __('Right Image', 'elementor-hello-world'),
-                'type'    => Controls_Manager::MEDIA, 
+                'label' => __('Right Image', 'elementor-hello-world'),
+                'type'  => Controls_Manager::MEDIA,
             ]
         );
         $this->add_control(
             'tob-img',
             [
-                'label'   => __('Tob Image', 'elementor-hello-world'),
-                'type'    => Controls_Manager::MEDIA, 
+                'label' => __('Tob Image', 'elementor-hello-world'),
+                'type'  => Controls_Manager::MEDIA,
             ]
         );
         // end_controls_section -----
@@ -173,27 +181,29 @@ class WilHeroSection extends Widget_Base
         <!--==================================================================== 
                     Start hero section
         =====================================================================-->
-            <section class="hero-section py-100 bg-img d-flex align-items-center" style="background-image:url(<?php echo esc_html($aSettings['bg-img']['url']); ?>);">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <div class="hero-text">
-                                <h1><?php echo esc_html($aSettings['title']); ?></h1>
-                                <p><?php echo esc_html($aSettings['sub-title-line1']); ?> <br /><?php echo esc_html($aSettings['sub-title-line2']); ?></p>
-                                <a href="<?php echo esc_html($aSettings['btn-href']); ?>" class="btn"><?php echo esc_html($aSettings['btn']); ?></a>
-                            </div>
+        <section class="hero-section py-100 bg-img d-flex align-items-center"
+                 style="background-image:url(<?php echo esc_html($aSettings['bg-img']['url']); ?>);">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="hero-text">
+                            <h1><?php echo esc_html($aSettings['title']); ?></h1>
+                            <p><?php echo $aSettings['description']; ?></p>
+                            <a href="<?php echo esc_html($aSettings['btn-href']); ?>"
+                               class="btn"><?php echo esc_html($aSettings['btn']); ?></a>
                         </div>
-                        
-                        <div class="d-none d-md-block wow animated customFadeInRight hero-animation-image">
-                            <img src="<?php echo esc_html($aSettings['right-img']['url']); ?>" alt="">
-                        </div>
-                        <div class="d-none d-md-block wow animated customFadeInLeft tob-animation-image">
-                            <img src="<?php echo esc_html($aSettings['tob-img']['url']); ?>" alt="">
-                        </div>
-
                     </div>
+                    
+                    <div class="d-none d-md-block wow animated customFadeInRight hero-animation-image">
+                        <img src="<?php echo esc_html($aSettings['right-img']['url']); ?>" alt="">
+                    </div>
+                    <div class="d-none d-md-block wow animated customFadeInLeft tob-animation-image">
+                        <img src="<?php echo esc_html($aSettings['tob-img']['url']); ?>" alt="">
+                    </div>
+                
                 </div>
-            </section>
+            </div>
+        </section>
         <!--==================================================================== 
                                 End hero section
         =====================================================================-->
