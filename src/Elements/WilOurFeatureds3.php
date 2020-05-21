@@ -6,10 +6,10 @@ use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 
 /**
- * Class WilOurFeatureds2
+ * Class WilOurFeatureds3
  * @package HsLandingElementor\Elements
  */
-class WilOurFeatureds2 extends Widget_Base
+class WilOurFeatureds3 extends Widget_Base
 {
     /**
      * Retrieve the widget name.
@@ -22,7 +22,7 @@ class WilOurFeatureds2 extends Widget_Base
      */
     public function get_name()
     {
-        return 'hslanding-wil-our-featureds-2-section';
+        return 'hslanding-wil-our-featureds-3-section';
     }
     
     /**
@@ -36,7 +36,7 @@ class WilOurFeatureds2 extends Widget_Base
      */
     public function get_title()
     {
-        return __('Wil Our Featureds 2 Section', 'hslanding-elementor');
+        return __('Wil Our Featureds 3 Section', 'hslanding-elementor');
     }
     
     /**
@@ -86,31 +86,7 @@ class WilOurFeatureds2 extends Widget_Base
         $oOurFeaturedsRepeater = new \Elementor\Repeater();
 
         // start_controls_section -----
-        $this->start_controls_section(
-            'general_settings_section',
-            [
-                'label' => __('General Settings', 'elementor-hello-world'),
-            ]
-        );
         
-        $this->add_control(
-            'title',
-            [
-                'label'   => __('Title', 'elementor-hello-world'),
-                'type'    => Controls_Manager::TEXTAREA, 
-                'default' => ''
-            ]
-        );  
-        $this->add_control(
-            'sub-title',
-            [
-                'label'   => __('Sub Title', 'elementor-hello-world'),
-                'type'    => Controls_Manager::WYSIWYG, 
-                'default' => ''
-            ]
-        );  
-        // end_controls_section -----
-        $this->end_controls_section();
         
         // start_controls_section -----
         $this->start_controls_section(
@@ -133,13 +109,21 @@ class WilOurFeatureds2 extends Widget_Base
                 'label_block' => true,
             ]
         ); 
+ 
         $oOurFeaturedsRepeater->add_control(
-            'desc', [
-                'label'       => __('Description', 'hslanding-elementor'),
-                'type'        => \Elementor\Controls_Manager::WYSIWYG,
+            'color', [
+                'label'       => __('Color', 'hslanding-elementor'),
+                'type'        => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'one' => 'one',
+                    'two' => 'two',
+                    'three' => 'three',
+                ],
                 'label_block' => true,
+                'default'     => 'one'
             ]
         ); 
+ 
          
         $this->add_control(
             'features',
@@ -172,24 +156,19 @@ class WilOurFeatureds2 extends Widget_Base
                         Start Our featureds section
             =====================================================================-->
                 
-            <section class="cloud-service-two mb-100 mt-100 text-center">
+            <section class="cloud cloud-service-one mt-75 mb-75 rmb-65">
                 <div class="container">
-                    <div class="cloud-section-title mb-75">
-                        <h2><?php echo esc_html($aSettings['title']); ?></h2>
-                        <p><?php echo ($aSettings['sub-title']); ?></p>
-                    </div>
-
                     <div class="row">
                         <?php foreach ($aSettings['features'] as $aFeatureds) : ?>
                             <!-- single-service -->
                             <div class="col-lg-4 col-md-6">
-                                <div class="cloud-single-service-two">
+                                <div class="cloud-single-service-one color-<?php echo ($aFeatureds['color']); ?>">
                                     <img src="<?php echo esc_html($aFeatureds['img']['url']); ?>" alt="Service Image">
-                                    <h5><?php echo esc_html($aFeatureds['title']); ?></h5>
-                                    <p><?php echo ($aFeatureds['desc']); ?></p>
+                                    <h6><?php echo esc_html($aFeatureds['title']); ?></h6>
                                 </div>
-                            </div> 
+                            </div>
                         <?php endforeach; ?>
+                            <!-- single-service --> 
                     </div>
                 </div>
             </section>
