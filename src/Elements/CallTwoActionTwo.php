@@ -148,18 +148,8 @@ class CallTwoActionTwo extends Widget_Base
     {
         $aSettings = $this->get_settings_for_display();
         ?>
-        <div class="wil-call-to-action-two py-100 mt-75 d-flex align-items-center">
+        <div class="call-to-action-two py-100 mt-75 d-flex align-items-center">
             <div class="container">
-                <?php if (!empty($aSettings['title'])) : ?>
-                    <div class="row justify-content-center">
-                        <div class="col-md-7">
-                            <div class="element-title">
-                                <h2><?php echo esc_html($aSettings['title']); ?></h2>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-                
                 <div class="row justify-content-center">
                     <div class="col-md-7">
                         <div class="cta-two-text">
@@ -173,8 +163,9 @@ class CallTwoActionTwo extends Widget_Base
                             <?php endif; ?>
                             <?php if (!empty($aSettings['button_link'])) : ?>
                                 <a class="btn-bg4"
-                                   href="<?php echo esc_url($aSettings['button_link']); ?>"><?php echo esc_html
-                                    ($aSettings['button_name']); ?>></a>
+                                   href="<?php echo esc_url($aSettings['button_link']); ?>">
+                                   <?php echo esc_html($aSettings['button_name']); ?>
+                                </a>
                             <?php endif; ?>
                         </div>
                     </div>
