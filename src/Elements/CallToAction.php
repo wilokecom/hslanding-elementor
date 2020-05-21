@@ -83,27 +83,6 @@ class CallToAction extends Widget_Base
      */
     protected function _register_controls()
     {
-        $this->start_controls_section(
-            'general_settings_section',
-            [
-                'label' => __('General Settings', 'elementor-hello-world'),
-            ]
-        );
-        
-        $this->add_control(
-            'style',
-            [
-                'label'   => __('Style', 'elementor-hello-world'),
-                'type'    => Controls_Manager::SELECT,
-                'options' => [
-                    'cta-action-style-one' => 'Style 1',
-                    'cta-action-style-two' => 'Style 2'
-                ],
-                'default' => 'cta-action-style-two'
-            ]
-        );
-        
-        $this->end_controls_section();
         
         $this->start_controls_section(
             'left_section_settings',
@@ -125,7 +104,7 @@ class CallToAction extends Widget_Base
             'description',
             [
                 'label' => __('Description', 'elementor-hello-world'),
-                'type'  => Controls_Manager::TEXTAREA,
+                'type'  => Controls_Manager::WYSIWYG,
             ]
         );
         
@@ -170,27 +149,36 @@ class CallToAction extends Widget_Base
     {
         $aSettings = $this->get_settings_for_display();
         ?>
-        <div class="wil-call-to-action <?php echo esc_attr($aSettings['style']); ?>">
-            <div class="row align-items-center">
-                <div class="col-lg-8 text-lg-left text-center">
-                    <?php if (!empty($aSettings['title'])) : ?>
-                        <h4 class="cta-title"><?php echo esc_html($aSettings['title']); ?></h4>
-                    <?php endif; ?>
-                    <?php if (!empty($aSettings['description'])) : ?>
-                        <p class="cta-text wil-call-to-action-desc">
-                            <?php echo esc_html($aSettings['description']); ?>
-                        </p>
-                    <?php endif; ?>
-                </div>
-                
-                <?php if (!empty($aSettings['button_link'])) : ?>
-                    <div class="col-lg-4 d-flex justify-content-lg-end justify-content-center py-20">
-                        <a class="btn" href="<?php echo esc_url($aSettings['button_link']); ?>"><?php echo esc_html
-                            ($aSettings['button_name']); ?>></a>
+            <section class="cta-action-one pt-65 pb-40">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-9">
+                            <div class="cta-action-style-one">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-8 text-lg-left text-center">
+                                        <?php if (!empty($aSettings['title'])) : ?>
+                                            <h4 class="cta-title"><?php echo esc_html($aSettings['title']); ?></h4>
+                                        <?php endif; ?>
+                                        <?php if (!empty($aSettings['description'])) : ?>
+                                            <p class="cta-text wil-call-to-action-desc">
+                                                <?php echo ($aSettings['description']); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
+                                    
+                                    <?php if (!empty($aSettings['button_link'])) : ?>
+                                        <div class="col-lg-4 d-flex justify-content-lg-end justify-content-center py-20">
+                                            <a class="btn-bg" href="<?php echo esc_url($aSettings['button_link']); ?>">
+                                                <?php echo esc_html($aSettings['button_name']); ?>
+                                            </a>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                <?php endif; ?>
-            </div>
-        </div>
+                </div>
+            </section>
         <?php
     }
 }
