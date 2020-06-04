@@ -211,7 +211,7 @@ class WilGalleryDemoSection extends Widget_Base
                 <!--==================================================================== 
                                     Start portfolio section
             =====================================================================-->
-            <section class="portfolio-area pt-240 pb-75 rpt-195 WilGalleryDemoSection">
+            <section class="portfolio-area pt-100 pb-75 rpt-195 WilGalleryDemoSection">
                 <div class="row">
                     <div class="col-lg-12">
 
@@ -232,7 +232,7 @@ class WilGalleryDemoSection extends Widget_Base
                             <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
                                 <li style="">
                                     <a data-toggle="tab" href="#<?php echo esc_html($menus['menu-filter']); ?>" class="tab-two-btn <?php echo $index === 0 ? 'active': '' ; ?>" >
-                                        <h2 style="font-size: 24px"><?php echo esc_html($menus['menu-name']); ?></h2>
+                                        <h2 style="font-size: 22px;"><?php echo esc_html($menus['menu-name']); ?></h2>
                                     </a>
                                 </li>
                             <?php endforeach; ?>
@@ -250,8 +250,9 @@ class WilGalleryDemoSection extends Widget_Base
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
                                                     <a class="demo-wrap tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
-                                                        <h5 class="demo-name"> <?php echo esc_html($aPortfolios['name']); ?></h5>
-                                                        <div class="demo-img aspect-ratio--9x16 cover bg-center" style="background-image: url(<?php echo esc_html($aPortfolios['img-src']['url']); ?>)"></div>
+                                                        <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08) !important;" src="<?php echo esc_html($aPortfolios['img-src']['url']); ?>" alt="">
+                                                        <h5 class="demo-name" style="font-weight: 500"> <?php echo esc_html($aPortfolios['name']); ?></h5>
+                                                        
                                                         <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
                                                     </a>
                                                 </div>
