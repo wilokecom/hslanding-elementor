@@ -194,7 +194,7 @@ class WilTextBlock extends Widget_Base
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="con-cloud-about-img rmb-75 mr-60 rmr-0">
+                    <div class="hp6-wwa-img">
                         <img src="<?php echo esc_html($aSettings['img']['url']); ?>" alt="About">
                     </div>
                 </div>

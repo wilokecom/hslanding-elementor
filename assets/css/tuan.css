@@ -2,6 +2,10 @@ a {
     transition: all .3s;
 }
 
+strong {
+    font-weight: 600;
+}
+
 .tc {
     text-align: center;
 }
@@ -160,6 +164,10 @@ a {
 
 
 /* ss */
+
+.wil-hero-section .color-btn {
+    margin: 15px 0 !important;
+}
 
 .hero-section--desc p {
     font-size: 20px;
