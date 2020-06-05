@@ -10,6 +10,20 @@ a {
     display: block;
 }
 
+.db-ns {
+    display: block;
+}
+
+.dn {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .db-ns {
+        display: none;
+    }
+}
+
 .pa0 {
     padding: 0;
 }
@@ -43,11 +57,15 @@ a {
     background-size: cover
 }
 
+.hp5-list-style li:before {
+    color: #6563f7 !important;
+}
+
 
 /* fdaeda */
 
 .WilGalleryDemoSection .tab-pane {
-    padding: 20px;
+    padding: 0px;
 }
 
 .WilGalleryDemoSection .nav-tabs {
@@ -62,7 +80,7 @@ a {
 }
 
 .WilGalleryDemoSection .tab-two-btn.active * {
-    color: teal !important;
+    color: #6563f7 !important;
 }
 
 .WilGalleryDemoSection .tab-two-btn::after {
@@ -75,23 +93,23 @@ a {
 }
 
 .WilGalleryDemoSection .tab-two-btn.active::after {
-    border-bottom: 5px solid teal;
+    border-bottom: 5px solid #6563f7;
 }
 
 .demo-wrap {
-    margin: 30px;
+    margin: 30px 5%;
 }
 
 .demo-wrap:hover .demo-name {
-    color: teal;
+    color: #6563f7;
 }
 
 .demo-name {
     font-size: 16px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #111;
-    font-weight: bold;
-    margin-bottom: 25px;
+    padding: 20px;
+    transition: all .2s;
 }
 
 .demo-img {

@@ -144,6 +144,14 @@ class WilTextBlock extends Widget_Base
             ]
         );
         $this->add_control(
+            'color',
+            [
+                'label' => __('Color', 'hslanding-elementor'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'label_block' => true,
+            ]
+        );
+        $this->add_control(
             'img',
             [
                 'label' => __('Image', 'hslanding-elementor'),
@@ -175,12 +183,15 @@ class WilTextBlock extends Widget_Base
                     <div class="col-lg-6 order-lg-2">
                         <div class="con-cloud-about-content rmb-50">
                             <div class="con-cloud-section-title mb-35">
-                                <span class="sub-title"><?php echo esc_html($aSettings['sub-title']); ?></span>
+                                <span class="" style="font-weight: 700; font-size: 14px; color: <?php echo esc_html($aSettings['color']); ?>; display: flex; align-items: center; margin-bottom: 10px;">
+                                    <?php echo esc_html($aSettings['sub-title']); ?>
+                                    <span style="margin-left: 10px;width: 50px; border-bottom: 1px solid <?php echo esc_html($aSettings['color']); ?>"></span>
+                                </span>
                                 <h2><?php echo esc_html($aSettings['title']); ?></h2>
                             </div>
 
                             <p><?php echo ($aSettings['content']); ?></p>
-                            <a href="<?php echo esc_html($aSettings['btn-href']); ?>" class="color-btn con-cloud-btn"><span style="color: white"><?php echo esc_html($aSettings['btn']); ?></span></a>
+                            <a href="<?php echo esc_html($aSettings['btn-href']); ?>" class="color-btn con-cloud-btn" style="background: <?php echo esc_html($aSettings['color']); ?> " ><span style="color: white"><?php echo esc_html($aSettings['btn']); ?></span></a>
                         </div>
                     </div>
                     <div class="col-lg-6">
