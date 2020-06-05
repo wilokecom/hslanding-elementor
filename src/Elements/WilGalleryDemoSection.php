@@ -257,7 +257,7 @@ class WilGalleryDemoSection extends Widget_Base
                                                     <a class="demo-wrap tc db" href="<?php echo esc_html($portfolio['img-link']); ?>" target="_blank" rel="noopener noreferrer">
                                                         <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08)
                                                         !important;" src="<?php echo esc_html
-                                                        (wp_get_attachment_image_url($portfolio['img-src']['id'],'hsblog_landing_thumbnail')); ?>" alt="<?php echo esc_html($portfolio['name']); ?>">
+                                                        (wp_get_attachment_image_url($portfolio['img-src']['id'],[500,500])); ?>" alt="<?php echo esc_html($portfolio['name']); ?>">
                                                         <h5 class="demo-name" style="font-weight: 500"> <?php echo esc_html($portfolio['name']); ?></h5>
                                                     </a>
                                                 </div>
