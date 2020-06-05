@@ -233,7 +233,7 @@ class WilGalleryDemoSection extends Widget_Base
                             <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
                                 <li style="">
                                     <a data-toggle="tab" href="#<?php echo esc_html($menus['menu-filter']); ?>" class="tab-two-btn <?php echo $index === 0 ? 'active': '' ; ?>" >
-                                        <h2 style="font-size: 22px;"><?php echo esc_html($menus['menu-name']); ?></h2>
+                                        <h2><?php echo esc_html($menus['menu-name']); ?></h2>
                                     </a>
                                 </li>
                             <?php endforeach; ?>
@@ -251,7 +251,7 @@ class WilGalleryDemoSection extends Widget_Base
                                             shuffle($aPortfolios);  
                                             foreach ($aPortfolios as $portfolio)  
                                         : ?>
-                                            <?php if (in_array($menus['menu-filter'], explode(' ',$portfolio['filter-class']))  ): ?>
+                                            <?php if (in_array($menus['menu-filter'], explode(' ',$portfolio['filter-class'])) || $menus['menu-filter'] === 'all'  ): ?>
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
                                                     <a class="demo-wrap tc db" href="<?php echo esc_html($portfolio['img-link']); ?>" target="_blank" rel="noopener noreferrer">

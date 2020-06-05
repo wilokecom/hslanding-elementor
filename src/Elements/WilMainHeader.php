@@ -245,8 +245,8 @@ class WilMainHeader extends Widget_Base
 
                             <!-- Menu buttons-->
                             <div class="sup-log">
-                                <a class="support" href="<?php echo esc_html($aSettings['btn1-href']); ?>"><?php echo esc_html($aSettings['btn1-text']); ?></a>
-                                <a class="login" href="<?php echo esc_html($aSettings['btn2-href']); ?>"><?php echo esc_html($aSettings['btn2-text']); ?></a>
+                                <a target="_blank" rel="noopener noreferrer" class="support" href="<?php echo esc_html($aSettings['btn1-href']); ?>"><?php echo esc_html($aSettings['btn1-text']); ?></a>
+                                <a target="_blank" rel="noopener noreferrer" class="login" href="<?php echo esc_html($aSettings['btn2-href']); ?>"><?php echo esc_html($aSettings['btn2-text']); ?></a>
                             </div>
                         </div>
 

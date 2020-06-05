@@ -2,6 +2,10 @@ a {
     transition: all .3s;
 }
 
+strong {
+    font-weight: 600;
+}
+
 .tc {
     text-align: center;
 }
@@ -72,6 +76,12 @@ a {
     border: none !important;
 }
 
+.WilGalleryDemoSection .nav-tabs h2 {
+    color: #243e63;
+    font-weight: 500;
+    font-size: 20px;
+}
+
 .WilGalleryDemoSection .tab-two-btn {
     position: relative;
     border: none !important;
@@ -133,4 +143,32 @@ a {
     .demo-grid-item {
         width: 24.8% !important;
     }
+}
+
+
+/* --- */
+
+.wil-text-block .border-btn {
+    margin: 15px 0 !important;
+}
+
+.wil-text-block--content {
+    margin: 0 !important;
+}
+
+.wil-text-block--content * {
+    line-height: 1.7;
+    font-size: 16px;
+    margin: 0 !important;
+}
+
+
+/* ss */
+
+.wil-hero-section .color-btn {
+    margin: 15px 0 !important;
+}
+
+.hero-section--desc p {
+    font-size: 20px;
 }
