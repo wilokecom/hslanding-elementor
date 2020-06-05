@@ -181,16 +181,16 @@ class WilHeroSection extends Widget_Base
         <!--==================================================================== 
                     Start hero section
         =====================================================================-->
-        <section class="hero-section py-100 bg-img d-flex align-items-center"
+        <section class="hero-section wil-hero-section py-100 bg-img d-flex align-items-center"
                  style="background-image:url(<?php echo esc_html($aSettings['bg-img']['url']); ?>);">
             <div class="container">
                 <div class="row">
                     <div class="col-md-7">
                         <div class="hero-text">
                             <h1><?php echo esc_html($aSettings['title']); ?></h1>
-                            <p><?php echo $aSettings['description']; ?></p>
-                            <a href="<?php echo esc_html($aSettings['btn-href']); ?>"
-                               class="btn"><?php echo esc_html($aSettings['btn']); ?></a>
+                            <div class="hero-section--desc"><?php echo $aSettings['description']; ?></div>
+                            <a target="_blank" rel="noopener noreferrer" href="<?php echo esc_html($aSettings['btn-href']); ?>"
+                               class="color-btn color-btn11"><?php echo esc_html($aSettings['btn']); ?></a>
                         </div>
                     </div>
                     
