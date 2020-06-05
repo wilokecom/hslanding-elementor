@@ -57,6 +57,10 @@ a {
     background-size: cover
 }
 
+.hp5-list-style li:before {
+    color: #6563f7 !important;
+}
+
 
 /* fdaeda */
 
@@ -102,10 +106,9 @@ a {
 
 .demo-name {
     font-size: 16px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #111;
-    font-weight: bold;
-    margin-top: 20px;
+    padding: 20px;
     transition: all .2s;
 }
 

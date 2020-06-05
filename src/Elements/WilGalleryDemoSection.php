@@ -245,15 +245,17 @@ class WilGalleryDemoSection extends Widget_Base
                             <?php foreach ($aSettings['menus'] as $index => $menus) : ?>
                                 <div id="<?php echo esc_html($menus['menu-filter']); ?>" class="tab-pane <?php echo $index === 0 ? 'active': 'fade' ; ?>">
                                     <div class="row">
-                                        <?php foreach ($aSettings['portfolios'] as $aPortfolios) : ?>
-                                            <?php if ($aPortfolios['filter-class'] === $menus['menu-filter'] ): ?>
+                                        <?php 
+                                            $aPortfolios = $aSettings['portfolios'];
+                                            shuffle($aPortfolios);  
+                                            foreach ($aPortfolios as $portfolio)  
+                                        : ?>
+                                            <?php if (in_array($menus['menu-filter'], explode(' ',$portfolio['filter-class']))  ): ?>
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
-                                                    <a class="demo-wrap tc db" href="<?php echo esc_html($aPortfolios['img-link']); ?>" target="_blank" rel="noopener noreferrer">
-                                                        <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08) !important;" src="<?php echo esc_html($aPortfolios['img-src']['url']); ?>" alt="">
-                                                        <h5 class="demo-name" style="font-weight: 500"> <?php echo esc_html($aPortfolios['name']); ?></h5>
-                                                        
-                                                        <span style="display:flex"><?php echo esc_html($aPortfolios['img-link']); ?></span>
+                                                    <a class="demo-wrap tc db" href="<?php echo esc_html($portfolio['img-link']); ?>" target="_blank" rel="noopener noreferrer">
+                                                        <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08) !important;" src="<?php echo esc_html($portfolio['img-src']['url']); ?>" alt="<?php echo esc_html($portfolio['name']); ?>">
+                                                        <h5 class="demo-name" style="font-weight: 500"> <?php echo esc_html($portfolio['name']); ?></h5>
                                                     </a>
                                                 </div>
                                             <?php endif; ?>
