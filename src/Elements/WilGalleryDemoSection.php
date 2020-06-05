@@ -172,7 +172,7 @@ class WilGalleryDemoSection extends Widget_Base
                 'type'        => \Elementor\Controls_Manager::MEDIA,
                 'label_block' => true,
             ]
-        ); 
+        );
         $oPortfolioRepeater->add_control(
             'img-link', [
                 'label'       => __('Image link', 'hslanding-elementor'),
@@ -205,7 +205,8 @@ class WilGalleryDemoSection extends Widget_Base
      */
     protected function render()
     {
-        $aSettings = $this->get_settings_for_display();
+        $aSettings = $this->get_settings_for_display();;
+        echo wp_get_attachment_image_url(10145,'hsblog_landing_thumbnail');
         ?>
             
                 <!--==================================================================== 
@@ -254,7 +255,9 @@ class WilGalleryDemoSection extends Widget_Base
                                                 <!-- tab one content -->
                                                 <div class="col-sm-3">
                                                     <a class="demo-wrap tc db" href="<?php echo esc_html($portfolio['img-link']); ?>" target="_blank" rel="noopener noreferrer">
-                                                        <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08) !important;" src="<?php echo esc_html($portfolio['img-src']['url']); ?>" alt="<?php echo esc_html($portfolio['name']); ?>">
+                                                        <img style="box-shadow: 0 4px 14px 0 rgba(39,38,43,0.08)
+                                                        !important;" src="<?php echo esc_html
+                                                        (wp_get_attachment_image_url($portfolio['img-src']['id'],'hsblog_landing_thumbnail')); ?>" alt="<?php echo esc_html($portfolio['name']); ?>">
                                                         <h5 class="demo-name" style="font-weight: 500"> <?php echo esc_html($portfolio['name']); ?></h5>
                                                     </a>
                                                 </div>
