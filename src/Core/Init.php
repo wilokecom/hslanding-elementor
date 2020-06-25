@@ -63,60 +63,94 @@ class Init
     
     protected function enqueueCSS()
     {
-        foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_CSS_PATH.'*.css') as $file) {
-            $file = $this->parseFile($file);
-            
-            $fileName = str_replace('.css', '', $file);
-            
-            wp_enqueue_style(
-                $fileName,
-                HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.$file,
-                [],
-                HSLANDING_ELEMENTOR_VERSION
-            );
-            // wp_enqueue_style(
-            //     'hslanding-style',
-            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'style.css',
-            //     [],
-            //     HSLANDING_ELEMENTOR_VERSION
-            // );
-            // wp_enqueue_style(
-            //     'hslanding-responsive',
-            //     HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'responsive.css',
-            //     [],
-            //     HSLANDING_ELEMENTOR_VERSION
-            // );
-        }
+        
+        // tuan add link style ------
+       
+        wp_enqueue_style(
+            'hslanding-line-awesome',
+            'https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css',
+            [],
+            HSLANDING_ELEMENTOR_VERSION
+        );
+        wp_enqueue_style(
+            'hslanding-slick.css',
+            '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css',
+            [],
+            HSLANDING_ELEMENTOR_VERSION
+        );
+        wp_enqueue_style(
+            'hslanding-slick-theme',
+            '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css',
+            [],
+            HSLANDING_ELEMENTOR_VERSION
+        );
+
+        wp_enqueue_style(
+            'vendors-grid',
+            HSLANDING_ELEMENTOR_ELEMENTS_VENDORS_PATH.'/boostrap/grid.css',
+            [],
+            HSLANDING_ELEMENTOR_VERSION
+        );
+        wp_enqueue_style(
+            'main-styles',
+            HSLANDING_ELEMENTOR_ELEMENTS_CSS_URL.'/styles.css',
+            [],
+            HSLANDING_ELEMENTOR_VERSION
+        );
+
     }
     
     protected function enqueueJS()
     {
         wp_enqueue_script('jquery');
         
-        foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_JS_PATH.'*.js') as $file) {
-            $file     = $this->parseFile($file);
-            $fileName = str_replace('.js', '', $file);
+        // foreach (glob(HSLANDING_ELEMENTOR_ELEMENTS_JS_PATH.'*.js') as $file) {
+        //     $file     = $this->parseFile($file);
+        //     $fileName = str_replace('.js', '', $file);
             
-            if ($fileName === 'main') {
-                continue;
-            }
+        //     if ($fileName === 'main') {
+        //         continue;
+        //     }
             
-            wp_enqueue_script(
-                $fileName,
-                HSLANDING_ELEMENTOR_ELEMENTS_JS_URL.$file,
-                ['jquery'],
-                HSLANDING_ELEMENTOR_VERSION,
-                true
-            );
-        }
+        //     wp_enqueue_script(
+        //         $fileName,
+        //         HSLANDING_ELEMENTOR_ELEMENTS_JS_URL.$file,
+        //         ['jquery'],
+        //         HSLANDING_ELEMENTOR_VERSION,
+        //         true
+        //     );
+        // }
         
         wp_enqueue_script(
-            'hslanding-main',
-            HSLANDING_ELEMENTOR_ELEMENTS_JS_URL.'main.js',
+            'hslanding-main-scripts',
+            HSLANDING_ELEMENTOR_ELEMENTS_JS_URL.'scripts.js',
             ['jquery'],
             HSLANDING_ELEMENTOR_VERSION,
-            true
+            false
         );
+        // tuan add link scripp -0---
+        wp_enqueue_script(
+            'hslanding-jquery-1.11',
+            '//code.jquery.com/jquery-1.11.0.min.js',
+            ['jquery'],
+            HSLANDING_ELEMENTOR_VERSION,
+            false
+        );
+        wp_enqueue_script(
+            'hslanding-jquery-migrate',
+            '//code.jquery.com/jquery-migrate-1.2.1.min.js',
+            ['jquery'],
+            HSLANDING_ELEMENTOR_VERSION,
+            false
+        );
+        wp_enqueue_script(
+            'hslanding-slick@1.8',
+            '//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js',
+            ['jquery'],
+            HSLANDING_ELEMENTOR_VERSION,
+            false
+        );
+        // tuan add link scripp -0---
     }
     
     /**

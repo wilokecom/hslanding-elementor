@@ -162,7 +162,7 @@ class CallTwoActionTwo extends Widget_Base
                                 </p>
                             <?php endif; ?>
                             <?php if (!empty($aSettings['button_link'])) : ?>
-                                <a class="btn-bg4"
+                                <a class="btn-bg4" target="_blank" rel="noopener noreferrer"
                                    href="<?php echo esc_url($aSettings['button_link']); ?>">
                                    <?php echo esc_html($aSettings['button_name']); ?>
                                 </a>

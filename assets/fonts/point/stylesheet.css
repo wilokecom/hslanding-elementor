@@ -1,0 +1,200 @@
+@font-face {
+    font-family: 'Point Extra';
+    src: local('Point Extra Light Italic'), local('Point-ExtraLightItalic'),
+        url('Point-ExtraLightItalic.woff2') format('woff2'),
+        url('Point-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Bold Italic'), local('Point-BoldItalic'),
+        url('Point-BoldItalic.woff2') format('woff2'),
+        url('Point-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Black Italic'), local('Point-BlackItalic'),
+        url('Point-BlackItalic.woff2') format('woff2'),
+        url('Point-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Semi';
+    src: local('Point Semi Bold Italic'), local('Point-SemiBoldItalic'),
+        url('Point-SemiBoldItalic.woff2') format('woff2'),
+        url('Point-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Thin'), local('Point-Thin'),
+        url('Point-Thin.woff2') format('woff2'),
+        url('Point-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Light Italic'), local('Point-LightItalic'),
+        url('Point-LightItalic.woff2') format('woff2'),
+        url('Point-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Extra';
+    src: local('Point Extra Light'), local('Point-ExtraLight'),
+        url('Point-ExtraLight.woff2') format('woff2'),
+        url('Point-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Hairline';
+    src: local('Point Hairline Italic'), local('Point-HairlineItalic'),
+        url('Point-HairlineItalic.woff2') format('woff2'),
+        url('Point-HairlineItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Black'), local('Point-Black'),
+        url('Point-Black.woff2') format('woff2'),
+        url('Point-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Extra';
+    src: local('Point Extra Bold'), local('Point-ExtraBold'),
+        url('Point-ExtraBold.woff2') format('woff2'),
+        url('Point-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Book';
+    src: local('Point Book Italic'), local('Point-BookItalic'),
+        url('Point-BookItalic.woff2') format('woff2'),
+        url('Point-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Thin Italic'), local('Point-ThinItalic'),
+        url('Point-ThinItalic.woff2') format('woff2'),
+        url('Point-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Regular'), local('Point-Regular'),
+        url('Point-Regular.woff2') format('woff2'),
+        url('Point-Regular.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Hairline';
+    src: local('Point Hairline'), local('Point-Hairline'),
+        url('Point-Hairline.woff2') format('woff2'),
+        url('Point-Hairline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Semi';
+    src: local('Point Semi Bold'), local('Point-SemiBold'),
+        url('Point-SemiBold.woff2') format('woff2'),
+        url('Point-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Medium Italic'), local('Point-MediumItalic'),
+        url('Point-MediumItalic.woff2') format('woff2'),
+        url('Point-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Bold'), local('Point-Bold'),
+        url('Point-Bold.woff2') format('woff2'),
+        url('Point-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Book';
+    src: local('Point Book'), local('Point-Book'),
+        url('Point-Book.woff2') format('woff2'),
+        url('Point-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point';
+    src: local('Point Light'), local('Point-Light'),
+        url('Point-Light.woff2') format('woff2'),
+        url('Point-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Point Extra';
+    src: local('Point Extra Bold Italic'), local('Point-ExtraBoldItalic'),
+        url('Point-ExtraBoldItalic.woff2') format('woff2'),
+        url('Point-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+

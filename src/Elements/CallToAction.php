@@ -168,9 +168,9 @@ class CallToAction extends Widget_Base
                                     
                                     <?php if (!empty($aSettings['button_link'])) : ?>
                                         <div class="col-lg-4 d-flex justify-content-lg-end justify-content-center py-20">
-                                            <a class="btn-bg" href="<?php echo esc_url($aSettings['button_link']); ?>">
+                                            <a target="_blank" rel="noopener noreferrer" class="btn-bg" href="<?php echo esc_url($aSettings['button_link']); ?>">
                                                 <?php echo esc_html($aSettings['button_name']); ?>
-                                            </a>
+                                            </a> 
                                         </div>
                                     <?php endif; ?>
                                 </div>
